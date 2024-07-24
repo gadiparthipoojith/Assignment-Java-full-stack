@@ -1,0 +1,35 @@
+package assignment;
+
+public class SecondSmallestElement {
+
+	    public static int findSecondSmallest(int[] arr) {
+	        if (arr.length < 2) {
+	            throw new IllegalArgumentException("Array should have at least two elements");
+	        }
+
+	        int smallest = Integer.MAX_VALUE;
+	        int secondSmallest = Integer.MAX_VALUE;
+
+	        for (int num : arr) {
+	            if (num < smallest) {
+	                secondSmallest = smallest;
+	                smallest = num;
+	            } else if (num < secondSmallest && num != smallest) {
+	                secondSmallest = num;
+	            }
+	        }
+
+	        return secondSmallest;
+	    }
+
+	    public static void main(String[] args) {
+	        int[] arr1 = {4, 2, 1, 5, 3}; // Example array
+	        int[] arr2 = {10, 20, 30, 40, 50}; // Another example array
+
+	        System.out.println("Second smallest element in arr1: " + findSecondSmallest(arr1));
+	        System.out.println("Second smallest element in arr2: " + findSecondSmallest(arr2));
+	    }
+	}
+
+
+
